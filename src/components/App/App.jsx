@@ -24,13 +24,13 @@ function App() {
 
   const updateFeedback = feedbackType => {
     switch (feedbackType) {
-      case 'Good':
+      case 'good':
         return setVotes(prev => ({ ...prev, good: prev.good + 1 }));
       
-      case 'Neutral':
+      case 'neutral':
         return setVotes(prev => ({ ...prev, neutral: prev.neutral + 1 }));
       
-      case 'Bad':
+      case 'bad':
         return setVotes(prev => ({ ...prev, bad: prev.bad + 1 }));
       
       default:
@@ -50,14 +50,23 @@ function App() {
       localStorage.setItem("voteGrid", JSON.stringify(votes));
   }, [votes])
 
-  const totalFeedback = votes.good + votes.neutral + votes.bad
+  const total = votes.good + votes.neutral + votes.bad;
+  const percentage = Math.round((votes.good + votes.neutral) / total * 100)
 
   return (
     <div className={css.wrapper}>
       <Description />
-      <Options userFeedback={updateFeedback} reset={handleReset} total={totalFeedback}/>
-      {!totalFeedback && <Notification />}
-      {totalFeedback ? <Feedback votes={votes} /> : ""}
+
+      <Options
+        userFeedback={updateFeedback}
+        reset={handleReset} />
+      
+      {!total && <Notification />}
+
+      {total ? <Feedback votes={votes}
+        totalVote={total}
+        percentageOfPositive={percentage} /> : ""}
+      
     </div>
   )
 }

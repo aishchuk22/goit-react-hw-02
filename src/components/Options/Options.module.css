@@ -1,0 +1,32 @@
+.optionsBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 24px auto 24px;
+  gap: 12px;
+}
+
+.optionsChoice {
+  width: calc((100% - 12px * 3) / 4);
+  height: 48px;
+  border: 1px solid pink;
+  border-radius: 4px;
+  transition: transform 350ms ease 50ms;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 8px;
+  background-color: rgb(237, 231, 231);
+}
+
+.optionsChoice:hover {
+  cursor: pointer;
+  border-color: tomato;
+  transform: scale(1.1);
+}
+
+.optionsChoice:active {
+  border: none;
+  box-shadow: 0px 0px 15px tomato;
+}

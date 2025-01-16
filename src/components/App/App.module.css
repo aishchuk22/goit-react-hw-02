@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px auto;
+  padding: 24px;
+  max-width: 620px;
+  border: 4px solid rgb(101, 81, 81);
+  border-radius: 16px;
+  background-image: radial-gradient(
+    circle,
+    rgb(232, 192, 192) 20%,
+    rgb(142, 94, 94) 200%
+  );
+}
